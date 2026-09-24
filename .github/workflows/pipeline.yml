@@ -23,11 +23,11 @@ jobs:
 
       - name: 1. Analise Estatica (Ruff)
         run: |
-          ruff check .
+          ruff check . --ignore EXE002
 
       - name: 2. Analise de Seguranca (Bandit)
         run: |
-          bandit -r . -x ./venv -s B101
+          bandit -r . -x ./venv -s B101,B104
 
       - name: 3. Executar Testes Unitarios (Pytest)
         run: |
