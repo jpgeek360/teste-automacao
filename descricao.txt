@@ -1,8 +1,0 @@
-meu-projeto/
-├── .github/
-│   └── workflows/
-│       └── pipeline.yml   # O script que automatiza tudo
-├── app.py                 # Sua aplicação Flask/FastAPI
-├── test_app.py            # Seus testes unitários em Python
-├── requirements.txt       # Dependências Python (flask, pytest, ruff, bandit...)
-└── Dockerfile             # Receita para gerar a imagem Docker da aplicação
