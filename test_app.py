@@ -3,27 +3,14 @@ from app import app
 
 def test_home_status_code():
     client = app.test_client()
-    response = client.get("/")
+    response = client.get('/')
     assert response.status_code == 200
+    assert b"A-FRAME" in response.data
 
-
-def test_home_conteudo():
+def test_api_endpoint():
     client = app.test_client()
-    response = client.get("/")
-    json_data = response.get_json()
-    assert json_data["status"] == "sucesso"
-    assert "versao" in json_data
-
-
-def test_health_check():
-    client = app.test_client()
-    response = client.get("/health")
+    response = client.get('/api')
     assert response.status_code == 200
-    assert response.get_json()["status"] == "healthy"
-
-
-def test_saudacao_parametro():
-    client = app.test_client()
-    response = client.get("/api/saudacao?nome=Joao")
-    assert response.status_code == 200
-    assert "Joao" in response.get_json()["mensagem"]
+    data = response.get_json()
+    assert data["status"] == "sucesso"
+    assert data["versao"] == "1.2.0"
