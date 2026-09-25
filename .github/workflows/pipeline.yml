@@ -33,6 +33,9 @@ jobs:
         run: |
           pytest test_app.py
 
+       - name: Run Ruff
+        run: ruff check . --ignore EXE002,DTZ005
+
   build-imagem-docker:
     needs: qualidade-e-testes
     runs-on: ubuntu-latest
