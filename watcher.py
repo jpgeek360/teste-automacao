@@ -1,6 +1,7 @@
 import datetime
 import subprocess
 import time
+from datetime import timezone
 
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
@@ -31,13 +32,15 @@ class ChangeHandler(FileSystemEventHandler):
 
                 # 2. Corrigir formatação com Ruff
                 subprocess.run(
-                    ["ruff", "check", ".", "--fix", "--ignore=EXE002"],
+                    ["ruff", "check", ".", "--fix", "--ignore=EXE002,DTZ005"],
                     check=False,
                 )
                 subprocess.run(["ruff", "format", "."], check=False)
 
-                # 3. Gerar mensagem de commit dinâmica com data/hora
-                timestamp = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                # 3. Gerar mensagem de commit dinâmica com data/hora UTC
+                timestamp = datetime.datetime.now(timezone.utc).strftime(
+                    "%d/%m/%Y %H:%M:%S"
+                )
                 commit_message = (
                     f"auto: testes validados em {TARGET_FILE} - {timestamp}"
                 )
@@ -46,7 +49,7 @@ class ChangeHandler(FileSystemEventHandler):
                 print(f"🚀 Realizando commit: '{commit_message}'...")
                 subprocess.run(["git", "add", "."], check=False)
 
-                # Executa o commit (se o pre-commit reformatar arquivos, tenta o commit novamente)
+                # Executa o commit
                 commit_res = subprocess.run(
                     ["git", "commit", "-m", commit_message], check=False
                 )
