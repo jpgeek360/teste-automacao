@@ -32,8 +32,10 @@ HTML_TEMPLATE = """
             </div>
             <nav class="space-x-6 text-sm font-medium text-slate-400">
                 <a href="#conceito" class="hover:text-cyan-400 transition-colors">Conceito</a>
-                <a href="#diagrama" class="hover:text-cyan-400 transition-colors">Ilustração 2D</a>
-                <a href="/api" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">API JSON ↗</a>
+                <a href="#diagrama" class="hover:text-cyan-400 transition-colors">IlustraÃ§Ã£o 2D</a>
+                <a href="#depoimentos" class="hover:text-cyan-400 transition-colors">AvaliaÃ§Ãµes</a>
+                <a href="#faq" class="hover:text-cyan-400 transition-colors">FAQ</a>
+                <a href="/api" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">API JSON ?</a>
             </nav>
         </div>
     </header>
@@ -44,7 +46,7 @@ HTML_TEMPLATE = """
                 Como Funcionam os <span class="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">Servidores Web</span>
             </h1>
             <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
-                Um servidor é o coração da web moderna: recebe requisições, processa a regra de negócio e entrega respostas instantâneas para navegadores e aplicações.
+                Um servidor Ã© o coraÃ§Ã£o da web moderna: recebe requisiÃ§Ãµes, processa a regra de negÃ³cio e entrega respostas instantÃ¢neas para navegadores e aplicaÃ§Ãµes.
             </p>
             <div class="flex justify-center gap-4 pt-2">
                 <a href="#diagrama" class="bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold px-6 py-3 rounded-lg shadow-lg transition-all">
@@ -59,8 +61,8 @@ HTML_TEMPLATE = """
 
     <section id="diagrama" class="py-12 px-6 max-w-5xl mx-auto w-full">
         <div class="text-center mb-6 space-y-1">
-            <h2 class="text-2xl font-bold text-white">Ilustração 2D: Fluxo Cliente x Servidor</h2>
-            <p class="text-sm text-slate-400">Simulação em tempo real via HTML5 Canvas 2D.</p>
+            <h2 class="text-2xl font-bold text-white">IlustraÃ§Ã£o 2D: Fluxo Cliente x Servidor</h2>
+            <p class="text-sm text-slate-400">SimulaÃ§Ã£o em tempo real via HTML5 Canvas 2D.</p>
         </div>
         
         <div class="relative w-full bg-slate-900/90 rounded-2xl p-4 border border-slate-800 glow-cyan shadow-2xl flex justify-center items-center">
@@ -77,23 +79,107 @@ HTML_TEMPLATE = """
                 <p class="text-xl font-bold text-cyan-400">HTTP / 2</p>
             </div>
             <div class="bg-slate-900/40 border border-slate-800/80 p-4 rounded-xl">
-                <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Latência Estimada</p>
+                <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">LatÃªncia Estimada</p>
                 <p class="text-xl font-bold text-sky-400">&lt; 15ms</p>
             </div>
         </div>
     </section>
 
-    <section id="conceito" class="py-12 px-6 max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+    <!-- MELHORIA 1: DEPOIMENTOS / PROVA SOCIAL -->
+    <section id="depoimentos" class="py-12 px-6 border-t border-slate-800/60 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white">O que dizem nossos alunos</h2>
+                <p class="text-slate-400 text-sm">Feedback de profissionais que dominaram infraestrutura e arquitetura web.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-xl space-y-4 hover:border-cyan-500/40 transition-colors">
+                    <div class="text-cyan-400 text-sm">?????</div>
+                    <p class="text-slate-300 text-sm italic">
+                        "O diagrama 2D e as explicacoes sobre endpoints HTTP facilitaram muito o entendimento pratico de como configurar servidores Nginx e Flask na minha rotina de trabalho."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-cyan-950 border border-cyan-500/30 flex items-center justify-center font-bold text-cyan-400 text-sm">
+                            JS
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">JoÃ£o Silva</p>
+                            <p class="text-xs text-slate-400">Desenvolvedor Web / DevOps</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-xl space-y-4 hover:border-sky-500/40 transition-colors">
+                    <div class="text-cyan-400 text-sm">?????</div>
+                    <p class="text-slate-300 text-sm italic">
+                        "Conteudo direto, objetivo e com foco em alta disponibilidade. As metricas de latencia e fluxo HTTP/2 ajudaram a estruturar meu projeto com total clareza."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-sky-950 border border-sky-500/30 flex items-center justify-center font-bold text-sky-400 text-sm">
+                            MA
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Maria Almeida</p>
+                            <p class="text-xs text-slate-400">Analista de Sistemas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MELHORIA 2: GRADE CURRICULAR / FAQ INTERATIVO -->
+    <section id="faq" class="py-12 px-6 max-w-5xl mx-auto w-full">
+        <div class="text-center mb-8 space-y-2">
+            <h2 class="text-2xl md:text-3xl font-bold text-white">ConteÃºdo & Perguntas Frequentes</h2>
+            <p class="text-slate-400 text-sm">Tire suas dÃºvidas sobre o funcionamento do servidor e a estrutura das APIs.</p>
+        </div>
+
+        <div class="space-y-4 max-w-3xl mx-auto">
+            <details class="group bg-slate-900/70 border border-slate-800 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center p-4 cursor-pointer font-semibold text-slate-200 group-open:text-cyan-400 group-open:bg-slate-900 transition-all">
+                    <span>?? Qual Ã© o objetivo do endpoint /api?</span>
+                    <span class="text-cyan-400 group-open:rotate-180 transition-transform duration-200">?</span>
+                </summary>
+                <div class="p-4 pt-2 text-sm text-slate-400 border-t border-slate-800/50 bg-slate-950/40">
+                    O endpoint <code>/api</code> demonstra o formato padronizado de resposta em JSON (JavaScript Object Notation), amplamente utilizado no desenvolvimento de Web APIs RESTful para integraÃ§Ã£o entre sistemas backend e frontend.
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/70 border border-slate-800 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center p-4 cursor-pointer font-semibold text-slate-200 group-open:text-cyan-400 group-open:bg-slate-900 transition-all">
+                    <span>? Por que o protocolo utilizado na simulaÃ§Ã£o Ã© o HTTP/2?</span>
+                    <span class="text-cyan-400 group-open:rotate-180 transition-transform duration-200">?</span>
+                </summary>
+                <div class="p-4 pt-2 text-sm text-slate-400 border-t border-slate-800/50 bg-slate-950/40">
+                    O HTTP/2 permite multiplexaÃ§Ã£o de requisiÃ§Ãµes sobre uma Ãºnica conexÃ£o TCP, reduzindo drastically o tempo de carregamento e otimizando a latÃªncia da infraestrutura para clientes concorrentes.
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/70 border border-slate-800 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center p-4 cursor-pointer font-semibold text-slate-200 group-open:text-cyan-400 group-open:bg-slate-900 transition-all">
+                    <span>??? Como esse projeto Ã© publicado e atualizado?</span>
+                    <span class="text-cyan-400 group-open:rotate-180 transition-transform duration-200">?</span>
+                </summary>
+                <div class="p-4 pt-2 text-sm text-slate-400 border-t border-slate-800/50 bg-slate-950/40">
+                    AtravÃ©s de uma esteira CI/CD automatizada. Ao realizar um commit no repositÃ³rio Git, o script valida os testes de cÃ³digo (pytest) e formataÃ§Ã£o (ruff) antes de implantar automaticamente a versÃ£o no serviÃ§o de hospedagem em nuvem.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section id="conceito" class="py-12 px-6 max-w-5xl mx-auto grid md:grid-cols-3 gap-6 border-t border-slate-800/60">
         <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-cyan-500/50 transition-colors">
             <h3 class="text-xl font-bold text-cyan-400">1. O Cliente (Browser)</h3>
             <p class="text-sm text-slate-400">
-                Envia pedidos HTTP/HTTPS (como <code>GET /</code>) solicitando páginas web, ficheiros estáticos ou respostas em JSON.
+                Envia pedidos HTTP/HTTPS (como <code>GET /</code>) solicitando pÃ¡ginas web, ficheiros estÃ¡ticos ou respostas em JSON.
             </p>
         </div>
         <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-sky-500/50 transition-colors">
             <h3 class="text-xl font-bold text-sky-400">2. O Servidor Web</h3>
             <p class="text-sm text-slate-400">
-                Processa a lógica da aplicação (ex: Flask, Python, Nginx), consulta dados e constrói o payload de resposta.
+                Processa a lÃ³gica da aplicaÃ§Ã£o (ex: Flask, Python, Nginx), consulta dados e constrÃ³i o payload de resposta.
             </p>
         </div>
         <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-blue-500/50 transition-colors">
@@ -105,7 +191,7 @@ HTML_TEMPLATE = """
     </section>
 
     <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
-        <p>Projeto de demonstração CI/CD & Deploy no Render. Versão 2.1.0</p>
+        <p>Projeto de demonstraÃ§Ã£o CI/CD & Deploy no Render. VersÃ£o 2.1.0</p>
     </footer>
 
     <script>
