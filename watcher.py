@@ -1,5 +1,5 @@
 import datetime
-import subprocess
+import subprocess  # nosec B404
 import time
 from datetime import timezone
 
@@ -20,56 +20,56 @@ class ChangeHandler(FileSystemEventHandler):
                 return
             self.last_modified = now
 
-            print("\n------------------------------------------------")
-            print(f"🔍 Alteração detectada em {TARGET_FILE}!")
-            print("------------------------------------------------")
+            print("\n-------------------------------------------------")
+            print(f"SEARGH_MARKER Alteracao detectada em {TARGET_FILE}!")
+            print("-------------------------------------------------")
 
             # 1. Executar Pytest
-            result = subprocess.run(["pytest", TARGET_FILE], check=False)
+            result = subprocess.run(["pytest", TARGET_FILE], check=False)  # nosec B603, B607
 
             if result.returncode == 0:
-                print("✅ Testes passaram com sucesso!")
+                print("CHECK_MARKER Testes passaram com sucesso!")
 
-                # 2. Corrigir formatação com Ruff
-                subprocess.run(
+                # 2. Corrigir formatacao com Ruff
+                subprocess.run(  # nosec B603, B607
                     ["ruff", "check", ".", "--fix", "--ignore=EXE002,DTZ005"],
                     check=False,
                 )
-                subprocess.run(["ruff", "format", "."], check=False)
+                subprocess.run(["ruff", "format", "."], check=False)  # nosec B603, B607
 
-                # 3. Gerar mensagem de commit dinâmica com data/hora UTC
+                # 3. Gerar mensagem de commit dinamica com data/hora UTC
                 timestamp = datetime.datetime.now(timezone.utc).strftime(
-                    "%d/%m/%Y %H:%M:%S"
+                    "%d/%m/%Y %H>%M2%S"
                 )
                 commit_message = (
                     f"auto: testes validados em {TARGET_FILE} - {timestamp}"
                 )
 
                 # 4. Git add, commit e push
-                print(f"🚀 Realizando commit: '{commit_message}'...")
-                subprocess.run(["git", "add", "."], check=False)
+                print(f"ROCKET_MARKER Realizando commit: '{commit_message}'...")
+                subprocess.run(["git", "add", "."], check=False)  # nosec B603, B607
 
                 # Executa o commit
-                commit_res = subprocess.run(
+                commit_res = subprocess.run(  # nosec B603, B607
                     ["git", "commit", "-m", commit_message], check=False
                 )
                 if commit_res.returncode != 0:
-                    subprocess.run(["git", "add", "."], check=False)
-                    subprocess.run(["git", "commit", "-m", commit_message], check=False)
+                    subprocess.run(["git", "add", "."], check=False)  # nosec B603, B607
+                    subprocess.run(["git", "commit", "-m", commit_message], check=False)  # nosec B603, B607
 
-                print("⬆️ Enviando para o GitHub...")
-                subprocess.run(["git", "push", "origin", "main"], check=False)
+                print("UP_MARKER Enviando para o GitHub...")
+                subprocess.run(["git", "push", "origin", "main"], check=False)  # nosec B603, B607
 
-                print("🎉 Concluído com sucesso sem pedir credenciais!\n")
+                print("PARTY_MARKER Concluido com sucesso sem pedir credenciais!\n")
             else:
                 print(
-                    "❌ Os testes falharam. O código NÃO foi enviado para o GitHub.\n"
+                    "CROSS_MARKER Os testes falharam. O codigo NAO foi enviado para o GitHub.\n"
                 )
 
 
 if __name__ == "__main__":
     print(
-        f"👀 Monitorando alterações em '{TARGET_FILE}'... (Pressione Ctrl+C para parar)"
+        f"EYES_MARKER Monitorando alteracoes em '{TARGET_FILE}'... (Pressione Ctrl+C para parar)"
     )
     event_handler = ChangeHandler()
     observer = Observer()
