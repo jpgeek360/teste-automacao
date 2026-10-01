@@ -97,7 +97,7 @@ HTML_TEMPLATE = """
                 <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-xl space-y-4 hover:border-cyan-500/40 transition-colors">
                     <div class="text-cyan-400 text-sm">?????</div>
                     <p class="text-slate-300 text-sm italic">
-                        "O diagrama 2D e as explicacoes sobre endpoints HTTP facilitaram muito o entendimento pratico de como configurar servidores Nginx e Flask na minha rotina de trabalho."
+                        "O diagrama 2D (João) e as explicacoes sobre endpoints HTTP facilitaram muito o entendimento pratico de como configurar servidores Nginx e Flask na minha rotina de trabalho."
                     </p>
                     <div class="flex items-center space-x-3 pt-2">
                         <div class="w-10 h-10 rounded-full bg-cyan-950 border border-cyan-500/30 flex items-center justify-center font-bold text-cyan-400 text-sm">
